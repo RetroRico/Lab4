@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainActivity">
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.lab4.Activity.MainActivity"
+        android:label="MainActivity" />
+        <action
+            android:id="@+id/action_main_to_second"
+            app:destination="@id/secondActivity"/>
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.example.lab4.Activity.SecondActivity"
+        android:label="SecondActivity" />
+        <action
+            android:id="@+id/action_second_to_main"
+            app:destination="@id/mainActivity"/>
+</navigation>
