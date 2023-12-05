@@ -2,6 +2,7 @@ package com.example.lab4.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         adapter = new Adapter(dataList, this);
         recyclerView.setAdapter(adapter);
         fetchDataFromApi();
+
+        Button exit_button = findViewById(R.id.exit_button);
+        exit_button.setOnClickListener(view -> finishAffinity());
     }
 
     private void fetchDataFromApi() {
@@ -79,7 +83,11 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String ShipName = jsonObject.getString("ship_name");
                 String ShipId = jsonObject.getString("ship_id");
-                Data data = new Data(ShipId, ShipName);
+                String ShipModel = jsonObject.getString("ship_model");
+                String ShipType = jsonObject.getString("ship_type");
+                String ShipRole = jsonObject.getString("roles");
+                String ShipActive = Boolean.toString(jsonObject.getBoolean("active"));
+                Data data = new Data(ShipId, ShipName, ShipModel, ShipType, ShipRole, ShipActive);
                 dataList.add(data);
             }
             runOnUiThread(() -> adapter.notifyDataSetChanged());
@@ -99,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
         intent.putExtra("ITEM_NAME", clickedItem.getShipName());
         intent.putExtra("ITEM_ID", clickedItem.getShipId());
+        intent.putExtra("ITEM_MODEL", clickedItem.getShipModel());
+        intent.putExtra("ITEM_TYPE", clickedItem.getShipType());
+        intent.putExtra("ITEM_ROLE", clickedItem.getShipRole());
+        intent.putExtra("ITEM_ACTIVE", clickedItem.getShipActive());
         startActivity(intent);
     }
 }

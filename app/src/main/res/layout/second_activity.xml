@@ -5,27 +5,97 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/ShipName"
+    <TableLayout
+        android:id="@+id/Result_TableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="132dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/ShipId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@id/ShipName"
-        app:layout_constraintStart_toStartOf="parent"
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Name: " />
+
+            <TextView
+                android:id="@+id/Name_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Name" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Id: " />
+
+            <TextView
+                android:id="@+id/Id_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Id" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Model: " />
+
+            <TextView
+                android:id="@+id/Model_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Model" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Type: " />
+
+            <TextView
+                android:id="@+id/Type_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Type" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Role: " />
+
+            <TextView
+                android:id="@+id/Role_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Role" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextHint.Results"
+                android:text="Active: " />
+
+            <TextView
+                android:id="@+id/Active_TextView"
+                style="@style/TextHint.Results"
+                tools:text="Active" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="114dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="100dp"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        android:textSize="16sp" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
